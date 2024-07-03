@@ -1,86 +1,82 @@
-# Python Blockchain
+# บล็อกเชนด้วย Python
 
-This project implements a simple blockchain in Python, featuring both HTTP and P2P interfaces. It's designed for educational purposes to demonstrate basic blockchain concepts. Inspired from https://github.com/lhartikk/naivechain
+โปรเจกต์นี้เป็นการสร้างบล็อกเชนอย่างง่ายด้วย Python โดยมีทั้งอินเตอร์เฟซ HTTP และ P2P ออกแบบมาเพื่อวัตถุประสงค์ทางการศึกษาเพื่อสาธิตแนวคิดพื้นฐานของบล็อกเชน ได้รับแรงบันดาลใจจาก https://github.com/lhartikk/naivechain
 
-## Features
+## คุณสมบัติ
 
-- Simple proof-of-work blockchain implementation
-- HTTP API for interacting with the blockchain
-- P2P network capabilities for node communication
-- Block mining functionality
+- การทำงานของบล็อกเชนแบบ proof-of-work อย่างง่าย
+- API แบบ HTTP สำหรับโต้ตอบกับบล็อกเชน
+- ความสามารถเครือข่าย P2P สำหรับการสื่อสารระหว่างโหนด
+- ฟังก์ชันการขุดบล็อก
 
-## Prerequisites
+## ความต้องการเบื้องต้น
 
-- Python 3.7 or later
+- Python 3.7 หรือใหม่กว่า
 
-## Installation
+## การติดตั้ง
 
-1. Clone the repository:
+1. โคลนที่เก็บ:
    ```
    git clone https://github.com/yourusername/python-blockchain.git
    cd python-blockchain
    ```
 
-2. Set up a virtual environment:
+2. ตั้งค่าสภาพแวดล้อมเสมือน:
    ```
    python -m venv venv
    ```
 
-3. Activate the virtual environment:
-   - On Windows:
+3. เปิดใช้งานสภาพแวดล้อมเสมือน:
+   - บน Windows:
      ```
      venv\Scripts\activate
      ```
-   - On macOS and Linux:
+   - บน macOS และ Linux:
      ```
      source venv/bin/activate
      ```
 
-4. Install the required packages:
+4. ติดตั้งแพ็คเกจที่จำเป็น:
    ```
    pip install flask flask-cors websockets
    ```
 
-## Usage
+## การใช้งาน
 
-1. Start the blockchain node:
+1. เริ่มต้นโหนดบล็อกเชน:
    ```
    python blockchain.py
    ```
-   This will start both the HTTP server (default port 3001) and the P2P server (default port 6001).
+   นี่จะเริ่มทั้งเซิร์ฟเวอร์ HTTP (พอร์ตเริ่มต้น 3001) และเซิร์ฟเวอร์ P2P (พอร์ตเริ่มต้น 6001)
 
-2. Interact with the blockchain using HTTP requests:
-
-   - Get the current blockchain:
+2. โต้ตอบกับบล็อกเชนโดยใช้คำขอ HTTP:
+   - ดูบล็อกเชนปัจจุบัน:
      ```
      curl http://localhost:3001/blocks
      ```
-
-   - Mine a new block:
+   - ขุดบล็อกใหม่:
      ```
      curl -X POST -H "Content-Type: application/json" -d '{"data":"Some block data"}' http://localhost:3001/mineBlock
      ```
-
-   - Get the list of peers:
+   - ดูรายการเพียร์:
      ```
      curl http://localhost:3001/peers
      ```
-
-   - Add a new peer:
+   - เพิ่มเพียร์ใหม่:
      ```
      curl -X POST -H "Content-Type: application/json" -d '{"peer":"ws://localhost:6001"}' http://localhost:3001/addPeer
      ```
 
-## Running Multiple Nodes
+## การรันหลายโหนด
 
-To create a network of multiple nodes:
+เพื่อสร้างเครือข่ายของหลายโหนด:
 
-1. Start the first node with default settings:
+1. เริ่มต้นโหนดแรกด้วยการตั้งค่าเริ่มต้น:
    ```
    python blockchain.py
    ```
 
-2. Start additional nodes in new terminal windows, specifying different ports and peers:
+2. เริ่มต้นโหนดเพิ่มเติมในหน้าต่างเทอร์มินัลใหม่ โดยระบุพอร์ตและเพียร์ที่แตกต่างกัน:
    ```
    HTTP_PORT=3002 P2P_PORT=6002 PEERS=ws://localhost:6001 python blockchain.py
    ```
@@ -88,14 +84,11 @@ To create a network of multiple nodes:
    HTTP_PORT=3003 P2P_PORT=6003 PEERS=ws://localhost:6001,ws://localhost:6002 python blockchain.py
    ```
 
-## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## ใบอนุญาต
 
-## License
+โปรเจกต์นี้เป็นโอเพนซอร์สและมีให้ใช้ภายใต้ [MIT License](LICENSE)
 
-This project is open source and available under the [MIT License](LICENSE).
+## ข้อจำกัดความรับผิดชอบ
 
-## Disclaimer
-
-This blockchain implementation is for educational purposes only and is not suitable for production use without significant enhancements.
+การทำงานของบล็อกเชนนี้มีไว้เพื่อวัตถุประสงค์ทางการศึกษาเท่านั้นและไม่เหมาะสำหรับการใช้งานจริง
