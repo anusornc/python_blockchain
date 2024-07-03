@@ -17,7 +17,7 @@
 
 1. โคลนที่เก็บ:
    ```
-   git clone https://github.com/yourusername/python-blockchain.git
+   git clone https://github.com/anusornc/python-blockchain.git
    cd python-blockchain
    ```
 
